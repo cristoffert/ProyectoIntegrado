@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<head>
+    <style>
+        body {
+            background-image: url(https://hdwallsource.com/img/2014/5/cow-wallpaper-20056-20563-hd-wallpapers.jpg);
+            background-size: cover;
+        }
+
+        .form-signin {
+            max-width: 330px;
+            padding: 15px;
+            margin: 0 auto;
+            border-radius: 15px;
+        }
+
+            .form-signin .form-signin-heading, .form-signin .checkbox {
+                margin-bottom: 10px;
+                border-radius: 15px;
+            }
+
+            .form-signin .form-control {
+                position: relative;
+                font-size: 16px;
+                height: auto;
+                padding: 10px;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                border-radius: 15px;
+            }
+
+                .form-signin .form-control:focus {
+                    z-index: 2;
+                    border-radius: 15px;
+                }
+
+            .form-signin input[type="text"] {
+                margin-bottom: -1px;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+                border-radius: 15px;
+            }
+
+            .form-signin input[type="password"] {
+                margin-bottom: 10px;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                border-radius: 15px;
+            }
+
+        .account-wall {
+            margin-top: 20px;
+            padding: 40px 0px 20px 0px;
+            background-color: rgba(0,0,0,0.3);
+            -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+        }
+
+        .login-title {
+            color: #555;
+            font-size: 35px;
+            font-weight: 400;
+            display: block;
+            font-weight: bold;
+            color: white;
+        }
+
+        .profile-img {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 10px;
+            display: block;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-md-offset-4">
+                <h1 class="text-center login-title">Login Trabajadores</h1>
+                <div class="account-wall">
+                    <img class="profile-img" src="http://campus.capacitaperu.com/img/login/icono-500x500.png"
+                         alt="">
+                    <form class="form-signin">
+                        <div class="form-signin">
+                            @Html.TextBox("usuario", null, new { @class = "form-control", placeholder = "Ingresar nombre de usuario" })
+
+                        </div>
+                        <div class="form-signin">
+                            @Html.TextBox("pass", null, new { @class = "form-control", placeholder = "Ingresar contraseña" })
+
+                        </div>
+
+
+
+                        <div class="form-signin2">
+                            <span class="col-sm-6 col-md-offset-2">
+                                <button type="submit" class="btn btn-primary">Login</button>
+
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                            </span>
+                        </div>
+                    </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+</body>

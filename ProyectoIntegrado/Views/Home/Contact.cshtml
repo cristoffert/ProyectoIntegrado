@@ -1,0 +1,184 @@
+﻿@model IEnumerable<ProyectoIntegrado.Models.CLIENTES>
+@{
+    ViewBag.Title = "Contact";
+}
+<head>
+    <style>
+        body {
+            background-image: url(https://hdwallsource.com/img/2014/5/cow-wallpaper-20056-20563-hd-wallpapers.jpg);
+            background-size: cover;
+            color: white;
+        }
+
+        form * {
+            border-radius: 0 !important;
+        }
+
+
+        form > fieldset > legend {
+            font-size: 120%;
+        }
+
+        .account-wall {
+            margin-top: 20px;
+            padding: 40px 0px 20px 0px;
+            background-color: rgba(0,0,0,0.3);
+            -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('#found_site').on('change', function () {
+                $(this).val() == "other" ? $('#specify').closest('.form-group').show() : $('#specify').closest('.form-group').hide();
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Desplegar navegación</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="./MenuPrincipal">Logotipo</a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li class=""><a href="#">Recepcion de Muestras</a></li>
+                <li class=""><a href="#">Informe de Resultados</a></li>
+                <li class=""><a href="./Mantenimiento">Mantenimiento</a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+    <br />
+    <br />
+
+        <div class="col-md-8 col-md-offset-2">
+
+            <h3 class="text-center">Recepcion de Muestra</h3>
+            <fieldset>
+                <legend>Detalles de la Muestra</legend>
+                <div class="account-wall">
+
+                    <form role="form" method="POST" action="#" class="form-horizontal">
+
+
+                        <div class="form-horizontal">
+                            <div class="form-group col-md-12">
+                                <div class="col-md-6">
+                                    <label for="rut">Rut</label>
+                                    @Html.TextBox("rut", null, new { @class = "form-control", placeholder = "Ingresar rut" })
+                                </div>                 
+                                <div class="col-md-6">
+                                    <label for="cantidad_muestras">Cantidad de Muestras</label>
+                                    @Html.TextBox("cantidad", null, new { @class = "form-control", placeholder = "Ingresar cantidad de muestras" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal">
+                            <div class="form-group col-md-12">
+                                <div class="col-md-6">
+                                    <label for="">Nombre</label>
+                                    @Html.TextBox("nombre", null, new { @class = "form-control", placeholder = "Ingresar nombre" })
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="comuna">Comuna</label>
+                                    @Html.TextBox("comuna", null, new { @class = "form-control", placeholder = "Ingresar comuna" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal">
+                            <div class="form-group col-md-12">
+                                <div class="col-md-6">
+                                    <label for="">Tipo Cliente</label>
+                                    @Html.DropDownList("tipo", new List<SelectListItem>
+                               {
+                                new SelectListItem{Text="Ingrese Tipo de cliente", Value=" - "},
+                                new SelectListItem{Text="Clientes Varios", Value="ClientesVarios"},
+                                new SelectListItem{Text="Sobrante CL", Value="SobranteCl"},
+                                new SelectListItem{Text="Quesera", Value="Quesera"},
+                                   new SelectListItem{Text="Planta", Value="Planta"}
+
+                                },
+                                new { @class = "form-control" }
+                                )
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="">Tipo de Analisis</label>
+                                    @Html.DropDownList("tipo", new List<SelectListItem>
+                               {
+                                new SelectListItem{Text="Ingrese Tipo de cliente", Value=" - "},
+                                new SelectListItem{Text="Clientes Varios", Value="ClientesVarios"},
+                                new SelectListItem{Text="Sobrante CL", Value="SobranteCl"},
+                                new SelectListItem{Text="Quesera", Value="Quesera"},
+                                   new SelectListItem{Text="Planta", Value="Planta"}
+
+                                },
+                                new { @class = "form-control" }
+                                )
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="comuna">Tipo Analisis</label>
+                                    <select class="form-control" name="" id="found_site">
+                                        <option>Tipo 1</option>
+                                        <option>Tipo 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal">
+                            <div class="form-group col-md-12">
+                                <div class="col-md-6">
+                                    <label for="">Fecha Muestreo</label>
+                                    <input type="date" class="form-control" name="" id="fmuestreo" placeholder="">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="comuna">Fecha Recepcion</label>
+                                    <input type="date" class="form-control" name="" id="frecepcion" placeholder="">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal">
+                            <div class="form-group col-md-12">
+                                <div class="col-sm-6 col-md-offset-2">
+                                    <label for="">Observaciones</label>
+                                    @Html.TextArea("observacion", null, new { @class = "form-control", placeholder = "Ingresar Observaciones" })
+                                    @DateTimeOffset.Now
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-3 col-md-6">
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                <button type="reset" class="btn btn-info">Limpiar</button>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+
+            </fieldset>
+
+        </div>
+
+</body>

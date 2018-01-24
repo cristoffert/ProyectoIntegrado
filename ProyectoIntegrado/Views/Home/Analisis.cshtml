@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "Analisis";
+}
+<head>
+    <style>
+        body {
+            background-image: url(https://hdwallsource.com/img/2014/5/cow-wallpaper-20056-20563-hd-wallpapers.jpg);
+            background-size: cover;
+            color: white;
+        }
+
+        form * {
+            border-radius: 0 !important;
+        }
+
+
+        form > fieldset > legend {
+            font-size: 120%;
+        }
+
+        .account-wall {
+            margin-top: 20px;
+            padding: 40px 0px 20px 0px;
+            background-color: rgba(0,0,0,0.3);
+            -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('#found_site').on('change', function () {
+                $(this).val() == "other" ? $('#specify').closest('.form-group').show() : $('#specify').closest('.form-group').hide();
+            })
+        })
+    </script>
+</head>
+
+<body>
+@using (@Html.BeginForm("GuardarAnalisis", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <nav class="navbar navbar-default" role="navigation">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Desplegar navegación</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="./MenuPrincipal">Logotipo</a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li class=""><a href="./MenuPrincipal">Recepcion de Muestras</a></li>
+                <li class=""><a href="#">Informe de Resultados</a></li>
+                <li class=""><a href="./Mantenimiento">Mantenimiento</a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+    <br />
+    <br />
+
+
+    <div class="col-md-8 col-md-offset-2">
+
+        <h3 class="text-center">Maestro de Analisis</h3>
+        <fieldset>
+            <legend>Ingresar nuevo tipo de analisis</legend>
+            <div class="account-wall">
+
+                <form role="form" method="POST" action="#" class="form-horizontal">
+
+
+                    <div class="form-horizontal">
+                        <div class="form-group col-md-12">
+                            <div class="col-md-6">
+                                <label for="nombre-analisis">Nombre de Analisis</label>
+                                @Html.TextBox("nombreanalisis", null, new { @class = "form-control", placeholder = "Ingresar nombre de analisis" })
+                            </div>
+                            <div class="col-md-6">
+                                <label for="combinacion">Combinacion</label>
+                                @Html.TextBox("tipoanalisis", null, new { @class = "form-control", placeholder = "Ingresar combinacion" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-offset-4 col-md-6">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+
+        </fieldset>
+
+    </div>
+}
+</body>
+

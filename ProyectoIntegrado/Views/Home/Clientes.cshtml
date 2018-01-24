@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "Clientes";
+}
+
+<head>
+    <style>
+        body {
+            background-image: url(https://hdwallsource.com/img/2014/5/cow-wallpaper-20056-20563-hd-wallpapers.jpg);
+            background-size: cover;
+            color: white;
+        }
+
+        form * {
+            border-radius: 0 !important;
+        }
+
+
+        form > fieldset > legend {
+            font-size: 120%;
+        }
+
+        .account-wall {
+            margin-top: 20px;
+            padding: 40px 0px 20px 0px;
+            background-color: rgba(0,0,0,0.3);
+            -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('#found_site').on('change', function () {
+                $(this).val() == "other" ? $('#specify').closest('.form-group').show() : $('#specify').closest('.form-group').hide();
+            })
+        })
+    </script>
+</head>
+
+<body>
+@using (@Html.BeginForm("Guarda", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <nav class="navbar navbar-default" role="navigation">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Desplegar navegación</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="./MenuPrincipal">Logotipo</a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li class=""><a href="./MenuPrincipal">Recepcion de Muestras</a></li>
+                <li class=""><a href="#">Informe de Resultados</a></li>
+                <li class=""><a href="./Mantenimiento">Mantenimiento</a></li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+    <div class="col-md-8 col-md-offset-2">
+
+        <h3 class="text-center">Maestro de clientes</h3>
+        <fieldset>
+            <legend>Ingresar nuevos clientes</legend>
+            <div class="account-wall">
+
+                <form role="form" method="POST" action="#" class="form-horizontal">
+
+
+                    <div class="form-horizontal">
+                        <div class="form-group col-md-12">
+                            <div class="col-md-6">
+                                <label for="rut">Rut</label>
+                                @Html.TextBox("rut", null, new { @class = "form-control", placeholder = "Ingresar rut" })                            </div>
+                            <div class="col-md-6">
+                                <label for="nombre">Nombre</label>
+                                @Html.TextBox("nombre", null, new { @class = "form-control", placeholder = "Ingresar nombre" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-horizontal">
+                        <div class="form-group col-md-12">
+                            <div class="col-md-6">
+                                <label for="predio">Predio</label>
+                                @Html.TextBox("predio", null, new { @class = "form-control", placeholder = "Ingresar predio" })
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="comuna">Comuna</label>
+                                @Html.TextBox("comuna", null, new { @class = "form-control", placeholder = "Ingresar comuna" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-horizontal">
+                        <div class="form-group col-md-12">
+                            <div class="col-md-6">
+                                <label for="tipo">Tipo</label>
+                                @Html.TextBox("tipo", null, new { @class = "form-control", placeholder = "Ingresar tipo de cliente" })
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="telefono">Telefono</label>
+                                @Html.TextBox("telefono", null, new { @class = "form-control", placeholder = "Ingresar telefono" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-horizontal">
+                        <div class="form-group col-md-12">
+                            <div class="col-md-6">
+                                <label for="direccion">Dirección</label>
+                                @Html.TextBox("direccion", null, new { @class = "form-control", placeholder = "Ingresar direccion del cliente" })
+                            </div>
+                            <div class="col-md-6">
+                                <label for="mail">E-mail</label>
+                                @Html.TextBox("email", null, new { @class = "form-control", placeholder = "Ingresar E-Mail" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-offset-4 col-md-6">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="reset" class="btn btn-info">Limpiar</button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+
+        </fieldset>
+
+    </div>
+}
+</body>
